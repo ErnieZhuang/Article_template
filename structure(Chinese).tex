@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 模板資訊：
+% 模板名稱：Ernie's Article
+% 版本：1.0 (2023.03.26)
+% 作者：莊程翔 Ernie Cheng-Xiang Zhuang
+% 編譯器：XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX
+%
+% 製作本模板之目的：
+% 由於，LaTeX 對初學者來說不太友善，且 Word 在於數學式及中文排版上不大美觀。因此我製作了這個模板，同時附上清楚明瞭的註解、許多常用且好用的封包，以及客製化設定指令，以便 LaTeX 初學者能夠輕鬆地完成作業、報告甚至是學位論文。
+% 如果您有任何問題，可以透過以下兩種方式聯繫我： 
+% 1. 網站：https://www.ernie-zhuang.com/contact
+% 2. Email：erniezhuang1127@gmail.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	封包與文檔配置
+%----------------------------------------------------------------------------------------
+
+% 輸出的字體是以 Type 1 編碼
+\usepackage[T1]{fontenc} 
+
+% 自訂字體的封包
+\usepackage{fontspec} 
+
+%% 設定英文字體
+\setmainfont{Times New Roman} 
+
+%% 設定中文字體
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=3.5 , AutoFakeSlant=0.2, Path = fonts/]{源雲明體.ttf}
+\setCJKmonofont[AutoFakeBold=3.5 , AutoFakeSlant=0.2, Path = fonts/]{源雲明體.ttf}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+% 設定為 A4 紙的大小及上下左右的邊界
+\usepackage[left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm]{geometry} 
+
+% 行距，搭配後面得\begin{spacing}{1.5} 及 \end{spacing}
+\usepackage{setspace} 
+
+% 每段首行文字空行的封包
+\usepackage{indentfirst} 
+
+% 設定空 2 個字元 (2em)
+\setlength{\parindent}{2em} 
+
+% 呼叫任意大小字體的封包 (如 13.5pt)
+\usepackage{type1cm} 
+
+% 設置節的編號形式 (若不想變更節的樣式，將此以下至 \usepackage{color} 前都以 % 註釋掉。)
+\usepackage{titletoc} % 調整節標題的形式
+\usepackage[small]{titlesec} % 修改章節字型與大小。(可於中括號中加入 small, sf)
+%\usepackage{zhnumber} % 編號為一、二⋯
+%\renewcommand\thesection{\zhnum{section}、} % 調整節的編號 (還可以用 \Alph, \alph, Roman, roman)
+%\renewcommand\thesubsection{\arabic{subsection}.} % 調整子節的編號
+%\renewcommand\thesubsubsection{(\arabic{subsubsection})} % 調整小節的編號
+%\makeatletter
+
+% 設置章節編號與章節標題的距離
+%\renewcommand\@seccntformat[1]{
+%   {\csname the#1\endcsname}\hspace{0em}
+%}
+
+% 自訂字體顏色的封包
+\usepackage{color} 
+
+%% 自訂顏色
+\definecolor{NTHU_Purple}{RGB}{126,35,138}
+\definecolor{Default_Blue}{RGB}{52,51,171}
+
+% 數學工具及符號
+\usepackage{mathtools, amsmath, amsfonts, amsthm, latexsym} 
+
+% 分別將數學符號間的間隔加大及加粗
+\usepackage{newtxtext,newtxmath}
+
+\theoremstyle{definition} % 數學定理及定義的風格，plain, remark, definition, thmsty
+\newtheorem{Assum}{\textbf{假設}}
+\newtheorem{Axiom}{\textbf{公理}}
+\newtheorem{Def}{\textbf{定義}}
+\newtheorem{Thm}{\textbf{定理}}
+\newtheorem{Lemma}{\textbf{引理}}
+\newtheorem{Corol}{\textbf{推論}}
+\newtheorem{Property}{\textbf{性質}}
+\newtheorem{Proposition}{\textbf{命題}}
+\newtheorem{Claim}{\textbf{宣稱}}
+\newtheorem{Remark}{\textbf{備註}}
+\newtheorem{Note}{\textbf{註記}}
+\renewcommand{\proofname}{\rm\textbf{證明}}
+%\renewcommand{\qedsymbol}{}
+
+% 打勾 \Checkmark、打叉 \XSolid
+\usepackage{bbding} 
+
+% 圖表自動編號的封包
+\usepackage[justification=centering]{caption} 
+\usepackage[justification=centering, format=hang]{subcaption}
+
+%% 設定圖表編號及標籤的字體大小及字形
+\captionsetup[figure]{font=normalsize, labelfont=md}
+\captionsetup[table]{font=normalsize, labelfont=md}
+
+% 導入圖形與表格的封包
+\usepackage{graphicx}  % \scalebox{} 可用於將過大的表格縮小
+\usepackage{booktabs}
+
+% 允許表格的一格能多列呈現的封包
+\usepackage{multirow} 
+
+% 可指定表格排版的封包
+\usepackage{array}
+
+% 逆時針翻轉表格 90 度
+\usepackage{lscape} 
+
+% 長表格
+\usepackage{longtable} 
+
+% 表格內數字，以小數點或逗點對齊
+\usepackage{dcolumn} 
+
+% 調整圖的位置
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\floatpagefraction}{0.60}
+
+% 調整表中數字的對齊方式
+\newcolumntype{d}[1]{D{,}{,}{#1}} % 以逗點對齊，應在排表格時鍵入 d{?}
+\newcolumntype{.}[1]{D{.}{.}{#1}} % 以小數點對齊，應在排表格時鍵入 .{?}
+
+% 文繞圖
+\usepackage{wrapfig} 
+
+% 增加註腳的間隔
+\setlength{\footnotesep}{1em} 
+
+% 超連結的封包
+\usepackage{url}
+\usepackage[colorlinks, bookmarks = false]{hyperref}
+
+%% 設定各種超連結的顏色
+\hypersetup{
+	linkcolor = black,
+	citecolor = blue,
+	filecolor = blue,
+	urlcolor = blue
+} 
+
+% 序列標號
+\usepackage{enumerate} 
+
+% 註釋掉大部分的封包
+\usepackage{comment}
+
+% 導入 pdf 檔的封包 
+\usepackage{pdfpages} % \includepdf[pages=-]{檔名}
+
+% 摘要的封包
+\usepackage{abstract} 
+\renewcommand{\abstractnamefont}{\Large} % 摘要，兩字的大小
+
+% 附錄的封包
+\usepackage{appendix} 
+
+% 引注參考文獻的封包
+\usepackage[sort]{natbib}
+
+% 設定手動引注參考文獻的格式
+\newcommand\laref{\bigskip\noindent\hangindent=1em} 
+
+% 修改頁眉與頁足
+%\usepackage{fancyhdr} 
+%\pagestyle{fancy} % 設定頁眉與頁足的顯示風格，有 empty、plain、headings、myheadings、fancy。
+%\renewcommand{\sectionmark}[1]{\markright{\thesection#1}} 
+%\fancyhead[LO, LE]{}
+%\fancyhead[RO, RE]{\rightmark}
+%\addtolength{\headheight}{6pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\extrarowheight=2pt
+
+% 設定中文的標籤
+\renewcommand{\figurename}{圖} 
+\renewcommand{\tablename}{表} 
+\renewcommand{\abstractname}{\textbf{摘要}} 
+\renewcommand{\contentsname}{\textbf{目錄}}
+\renewcommand{\listfigurename}{\textbf{圖目錄}}
+\renewcommand{\listtablename}{\textbf{表目錄}}
+\renewcommand{\refname}{\textbf{參考文獻}}
+\renewcommand{\appendixpagename}{\Large \textbf{附錄}}

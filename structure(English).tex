@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template information:
+% Template name: Ernie's Article
+% Version: 1.0 (2023.03.26)
+% Author: 莊程翔 Ernie Cheng-Xiang Zhuang
+% Complier: XeLaTeX -> BibTeX -> XeLaTeX -> XeLaTeX
+%
+% The purpose of making this template:
+% Due to its steep learning curve, LaTeX is not particularly beginner-friendly, while Word may not be aesthetically pleasing when it comes to typesetting mathematical equations and Chinese characters. Therefore, I have created this template, complete with clear and concise comments, numerous useful packages, and customized commands to enable LaTeX beginners to easily complete assignments, reports, and even theses.
+% If you have any questions, you can contact me by:
+% 1. Website: https://www.ernie-zhuang.com/contact
+% 2. Email: erniezhuang1127@gmail.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	Packages and Document Configurations
+%----------------------------------------------------------------------------------------
+
+% Output font encoding by Type 1
+\usepackage[T1]{fontenc} 
+
+% Specification of custom fonts
+\usepackage{fontspec} 
+
+%% Specified font
+\setmainfont{Times New Roman} 
+
+% Use A4 paper and set left, right, top and bottom margins
+\usepackage[left=3.18cm, right=3.18cm, top=2.54cm, bottom=2.54cm]{geometry} 
+
+% Line spacing, with \begin{spacing}{1.5} and \end{spacing}
+\usepackage{setspace} 
+
+% Blank line for the first line of text in each paragraph
+\usepackage{indentfirst} 
+
+% Set the first line of each paragraph to be empty 2 characters (2em)
+\setlength{\parindent}{2em} 
+
+% Set any font size (such as 13.5pt)
+\usepackage{type1cm} 
+
+% Sets the section numbering style (Comment out this one up to \usepackage{color} with a % if you don't want to change the section style.)
+\usepackage{titletoc} % Adjust the form of section title
+\usepackage[small]{titlesec} % Modify section font and size. (you can add small, sf in square brackets)
+%\renewcommand\thesection{\arabic{section}} % adjustment section number (It can changed to: \Alph, \alph, \Roman, \roman)
+%\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}.} % adjustment subsection number
+%\renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\alph{subsubsection}} % adjustment subsubsection number
+%\makeatletter
+
+% Required for custom colors
+\usepackage{color} 
+
+%% Color section titles
+\definecolor{NTHU_Purple}{RGB}{126,35,138}
+\definecolor{Default_Blue}{RGB}{52,51,171}
+
+% Math tools and symbols
+\usepackage{mathtools, amsmath, amsfonts, amsthm, latexsym} 
+
+% Increase the space between mathematical symbols and make the ones bold
+\usepackage{newtxtext,newtxmath}
+
+\theoremstyle{definition} % The style of mathematical theorems and definitions (It can be changed to: plain, remark, definition, thmsty)
+\newtheorem{Assum}{\textbf{Assumption}}
+\newtheorem{Axiom}{\textbf{Axiom}}
+\newtheorem{Def}{\textbf{Definition}}
+\newtheorem{Thm}{\textbf{Theorem}}
+\newtheorem{Lemma}{\textbf{Lemma}}
+\newtheorem{Corol}{\textbf{Corollary}}
+\newtheorem{Property}{\textbf{Property}}
+\newtheorem{Proposition}{\textbf{Proposition}}
+\newtheorem{Claim}{\textbf{Claim}}
+\newtheorem{Remark}{\textbf{Remark}}
+\newtheorem{Note}{\textbf{Note}}
+\renewcommand{\proofname}{\textbf{proof.}}
+
+% Correct: \Checkmark; Wrong(Cross): \XSolid
+\usepackage{bbding} 
+
+% Sets the position of figure and table titles
+\usepackage[justification=centering]{caption} 
+\usepackage[justification=centering, format=hang]{subcaption}
+
+% Set the font size and series of automatic numbering
+\captionsetup[figure]{font=normalsize, labelfont=md}
+\captionsetup[table]{font=normalsize, labelfont=md}
+
+% Insert graphics and tables
+\usepackage{graphicx}  % \scalebox{} can be used to scale down an overly large table
+\usepackage{booktabs}
+
+% Multiple row
+\usepackage{multirow} 
+
+% Array
+\usepackage{array}
+
+% Flip table 90 degrees counterclockwise
+\usepackage{lscape} 
+
+% Long table (table across pages)
+\usepackage{longtable} 
+
+% Numbers in the table, aligned with decimal points or commas
+\usepackage{dcolumn} 
+
+% Adjust the position of the graph
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\floatpagefraction}{0.60}
+
+% Adjust the alignment of numbers in tables
+\newcolumntype{d}[1]{D{,}{,}{#1}} % Aligned with commas, you should type d{?} when arranging the table
+\newcolumntype{.}[1]{D{.}{.}{#1}} % To align with a decimal point, you should type .{?} when arranging the table
+
+% wrap figure
+\usepackage{wrapfig} 
+
+% Increase the spacing between footnotes
+\setlength{\footnotesep}{1em} 
+
+% Colors for links
+\usepackage{url}
+\usepackage[colorlinks, bookmarks = false]{hyperref}
+
+%% Set colors for links
+\hypersetup{
+	linkcolor = black,
+	citecolor = blue,
+	filecolor = blue,
+	urlcolor = blue
+} 
+
+% Enumerate itrm
+\usepackage{enumerate} 
+
+% Commenting out large sections
+\usepackage{comment}
+
+% Insert PDF pages
+\usepackage{pdfpages}  % \includepdf[pages=-]{file name}
+
+% Abstract
+\usepackage{abstract} 
+\renewcommand{\abstractnamefont}{\Large} % Set the size of Abstract
+
+% Appendix
+\usepackage{appendix} 
+\renewcommand{\appendixpagename}{\Large \textbf{Appendices}} % Set the size of Appendices
+
+% Citing references
+\usepackage[sort]{natbib}
+
+% Formatting Manually Cited References
+\newcommand\laref{\bigskip\noindent\hangindent=1em} 
+
+% Modify the header and footer
+%\usepackage{fancyhdr} 
+%\pagestyle{fancy} % Set the display style of header and footer, including empty, plain, headings, myheadings, fancy.
+%\renewcommand{\sectionmark}[1]{\markright{\thesection#1}} 
+%\fancyhead[LO, LE]{}
+%\fancyhead[RO, RE]{\rightmark}
+%\addtolength{\headheight}{6pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\extrarowheight=2pt
